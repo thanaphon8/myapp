@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar สบายตา</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .navbar .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .menu li {
+            margin: 0 15px;
+        }
+
+        .navbar .menu li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .navbar .menu li a:hover {
+            color: #6633cc;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .navbar .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: white;
+                width: 200px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar .menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">My Website</div>
+        <ul class="menu">
+            <li><a href="#">หน้าแรก</a></li>
+            <li><a href="#">เกี่ยวกับเรา</a></li>
+            <li><a href="#">บริการ</a></li>
+            <li><a href="#">ติดต่อ</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
+{% block content %}{% endblock content %}
