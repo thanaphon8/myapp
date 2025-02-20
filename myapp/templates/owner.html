@@ -1,0 +1,117 @@
+{% extends "nav.html" %}
+
+{% block title %}เพิ่มข้อมูลเจ้าของบ้าน{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <div class="form-wrapper">
+            <h1>เพิ่มข้อมูลเจ้าของบ้าน</h1>
+            <form action="#" method="POST" class="form">
+                <div class="form-group">
+                    <label for="owner_name">ชื่อเจ้าของ</label>
+                    <input type="text" id="owner_name" name="owner_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner_email">อีเมล</label>
+                    <input type="email" id="owner_email" name="owner_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner_phone">โทรศัพท์</label>
+                    <input type="tel" id="owner_phone" name="owner_phone" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">เพิ่มเจ้าของบ้าน</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Form container */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .form-wrapper {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Form styling */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-group button {
+            font-size: 18px;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Styling */
+        @media screen and (max-width: 768px) {
+            .form-wrapper {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+{% endblock %}

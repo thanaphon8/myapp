@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar สบายตา</title>
+    <title>{% block title %}บ้านเช่า{% endblock %}</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #f8f8f8;
+            background-color: #f4f6f9;
+            padding-top: 70px; /* Space for navbar */
+            font-size: 16px;
+            color: #333;
         }
 
         /* Navbar */
@@ -21,60 +24,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
+            font-size: 26px;
+            font-weight: 600;
+            color: #6633cc;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .navbar .menu {
             list-style: none;
             display: flex;
+            gap: 30px;
         }
 
         .navbar .menu li {
-            margin: 0 15px;
+            position: relative;
         }
 
         .navbar .menu li a {
             text-decoration: none;
             color: #333;
             font-size: 16px;
-            transition: color 0.3s;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s, border-bottom 0.3s;
         }
 
         .navbar .menu li a:hover {
             color: #6633cc;
+            border-bottom: 2px solid #6633cc;
+        }
+
+        .navbar .menu li a:focus {
+            outline: none;
+            border-bottom: 2px solid #ff5733; /* Highlight focus state */
         }
 
         /* Hamburger Menu */
         .hamburger {
             display: none;
-            font-size: 24px;
+            font-size: 30px;
             cursor: pointer;
+            color: #6633cc;
         }
 
-        /* Responsive */
+        /* Main Content */
+        .main-content {
+            padding: 30px 50px;
+            background-color: #fff;
+            margin-top: 80px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Responsive Styles */
         @media screen and (max-width: 768px) {
             .navbar .menu {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 right: 20px;
-                background: white;
-                width: 200px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                background-color: #ffffff;
+                width: 250px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px 20px;
             }
 
             .navbar .menu li {
-                margin: 15px 0;
+                margin-bottom: 15px;
                 text-align: center;
+            }
+
+            .navbar .menu li a {
+                padding: 12px 0;
+                font-size: 18px;
+                font-weight: 600;
             }
 
             .hamburger {
@@ -86,19 +130,30 @@
             }
         }
     </style>
+
+    {% block extra_css %}
+    {% endblock %}
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">My Website</div>
+        <div class="logo">บ้านเช่า</div>
         <ul class="menu">
-            <li><a href="#">หน้าแรก</a></li>
-            <li><a href="#">เกี่ยวกับเรา</a></li>
-            <li><a href="#">บริการ</a></li>
-            <li><a href="#">ติดต่อ</a></li>
+            <li><a href="{% url 'home' %}">หน้าแรก</a></li>
+            <li><a href="{% url 'about' %}">เกี่ยวกับเรา</a></li>
+            <li><a href="{% url 'property' %}">ทรัพย์สิน</a></li>
+            <li><a href="{% url 'owner' %}">เจ้าของ</a></li>
+            <li><a href="{% url 'tenant' %}">ผู้เช่า</a></li>
+            <li><a href="{% url 'lease' %}">สัญญาเช่า</a></li>
+            <li><a href="{% url 'contact' %}">ติดต่อเรา</a></li>
         </ul>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
+
+    <!-- Main Content Block -->
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
 
     <script>
         function toggleMenu() {
@@ -108,4 +163,3 @@
 
 </body>
 </html>
-{% block content %}{% endblock content %}

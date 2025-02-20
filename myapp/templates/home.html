@@ -1,168 +1,161 @@
-{% extends "nav.html" %} {% load static %} {% block content %}
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page สบายตา</title>
+{% extends "nav.html" %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ยินดีต้อนรับสู่เว็บไซต์บ้านเช่าของเรา</h1>
+            <p>เรามีบ้านเช่าให้เลือกมากมายตามความต้องการของคุณ</p>
+            <a href="#properties" class="btn">ดูบ้าน</a>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>ติดต่อเราเพื่อเรียนรู้เพิ่มเติม</h2>
+            <p>หากคุณมีคำถามหรือต้องการข้อมูลเพิ่มเติม โปรดติดต่อเรา</p>
+            <a href="/contact" class="btn btn-white">ติดต่อเรา</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_css %}
     <style>
-        * {
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f8f8f8;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .logo {
-            font-size: 22px;
-            font-weight: bold;
+            background-color: #fafafa;
             color: #333;
+            letter-spacing: 0.5px; /* Added letter spacing for overall text readability */
         }
 
-        .navbar .menu {
-            list-style: none;
-            display: flex;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
-        .navbar .menu li {
-            margin: 0 15px;
-        }
-
-        .navbar .menu li a {
-            text-decoration: none;
+        h1, h2, h3 {
+            font-weight: 700;
             color: #333;
-            font-size: 16px;
-            transition: color 0.3s;
+            letter-spacing: 1px; /* Increased letter-spacing for headings */
+            margin-bottom: 20px; /* Added margin to separate headings from other content */
         }
 
-        .navbar .menu li a:hover {
-            color: #6633cc;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
+        p {
+            line-height: 1.6; /* Increased line-height for better text readability */
+            letter-spacing: 0.5px;
+            margin-bottom: 20px; /* Added margin to avoid text being too close to other elements */
         }
 
         /* Hero Section */
         .hero {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            height: 80vh;
-            background: linear-gradient(to right, #6633cc, #9966ff);
+            height: 100vh;
+            background-color: #6633cc;
             color: white;
-            padding: 20px;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 40px;
+            line-height: 1.4;
         }
 
         .hero p {
-            font-size: 18px;
             margin-bottom: 20px;
+            font-size: 18px;
         }
 
         .hero .btn {
-            display: inline-block;
-            background: white;
+            background-color: #fff;
             color: #6633cc;
             padding: 12px 25px;
             font-size: 18px;
             font-weight: bold;
-            text-decoration: none;
             border-radius: 25px;
-            transition: background 0.3s, color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .hero .btn:hover {
-            background: #f8f8f8;
-            color: #333;
+            background-color: #6633cc;
+            color: white;
         }
 
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .navbar .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background: white;
-                width: 200px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
+        /* Call to Action Section */
+        .cta-section {
+            background-color: #6633cc;
+            color: white;
+            padding: 60px 0; /* Increased padding for more spacing */
+            text-align: center;
+        }
 
-            .navbar .menu li {
-                margin: 15px 0;
-                text-align: center;
-            }
+        .cta-section h2 {
+            margin-bottom: 20px; /* Added margin for spacing */
+            font-size: 32px; /* Larger font size for better visibility */
+            line-height: 1.4; /* Improved readability */
+        }
 
-            .hamburger {
-                display: block;
-            }
+        .cta-section p {
+            margin-bottom: 30px; /* Increased margin for better spacing */
+            font-size: 18px;
+            line-height: 1.6; /* Ensures better readability */
+        }
 
-            .menu.active {
-                display: flex;
-            }
+        .cta-section .btn-white {
+            background-color: white;
+            color: #6633cc;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-            .hero h1 {
-                font-size: 32px;
-            }
+        .cta-section .btn-white:hover {
+            background-color: #551a8b;
+            color: white;
+        }
 
-            .hero p {
-                font-size: 16px;
-            }
+        /* Navigation to Other Pages */
+        .navigation-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .navigation-buttons .btn {
+            background-color: #6633cc;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation-buttons .btn:hover {
+            background-color: #551a8b;
         }
     </style>
-</head>
-<body>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">My Website</div>
-        <ul class="menu">
-            <li><a href="#">หน้าแรก</a></li>
-            <li><a href="#">เกี่ยวกับเรา</a></li>
-            <li><a href="#">บริการ</a></li>
-            <li><a href="#">ติดต่อ</a></li>
-        </ul>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>ยินดีต้อนรับสู่เว็บไซต์ของเรา</h1>
-        <p>สร้างเว็บไซต์ที่สวยงามและใช้งานง่ายได้ภายในไม่กี่นาที</p>
-        <a href="#" class="btn">เริ่มต้นเลย</a>
-    </section>
-
-    <script>
-        function toggleMenu() {
-            document.querySelector('.menu').classList.toggle('active');
-        }
-    </script>
-
-</body>
-{% endblock content %}
-</html>
+{% endblock %}
